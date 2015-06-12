@@ -11,7 +11,7 @@ To install everything just type:
 
 
 ```sh
-    sudo chmod +x
+    sudo chmod +x install-all.sh
     ./install-all.sh
 ```
 
