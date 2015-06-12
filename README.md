@@ -19,9 +19,9 @@ To install everything just type:
 gerbdim
 -------
 
-Modified Matthew Backler's script returns the size of a pcb from a gerberfile.
+Modified Matthew Backler's utility that returns the size of a pcb from a gerberfile.
 Measuring the Edge_Cuts layer is highly recomended.
-Dimensions ar in millimeters.
+Dimensions are in millimeters.
 
 
 mils2mm
