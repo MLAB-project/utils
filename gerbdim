@@ -1,0 +1,35 @@
+#! /usr/bin/python3
+
+# Gerber query script
+# Modified by ondra6ak
+# Written by Matthew Beckler for Wayne and Layne, LLC
+# Based on a script from @laen
+# Released into the Public Domain. Have fun
+
+import re
+from sys import argv
+
+if (len(argv) < 2) or ("-h" in argv):
+    print("Usage: gerbdim [-h] [GERBERFILE]")
+    print("Output is in millimeters")
+    exit()
+
+xmin = None
+xmax = None
+ymin = None
+ymax = None
+for line in open(argv[1], "r").readlines():
+    results = re.search("^X([\d-]+)Y([\d-]+)", line.strip())
+    if results:
+        x = int(results.group(1))
+        y = int(results.group(2))
+        xmin = min(xmin, x) if xmin else x
+        xmax = max(xmax, x) if xmax else x
+        ymin = min(ymin, y) if ymin else y
+        ymax = max(ymax, y) if ymax else y
+
+
+w = (xmax - xmin) / 1000000.0
+h = (ymax - ymin) / 1000000.0
+
+print("w = {} h = {}".format(round(w, 2), round(h, 2)))

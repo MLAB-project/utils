@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+from sys import argv
+
+if ("-h" in argv) or (len(argv) < 2):
+    print("Usge: pst [-h] [SINCE] [TO]")
+    exit()
+
+while True:
+    if argv[1] in input():
+        while True:
+            line = input()
+            if argv[2] in line:
+                exit()
+            else:
+                print(line)
