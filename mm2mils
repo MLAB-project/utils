@@ -3,23 +3,17 @@
 from sys import argv
 
 def mm2mils(mm):
-	return mm * 1000 / 25.4
-
-def print_help():
-	print("Usage: mm2mils [-h] [MM]")
-	print("If no argument is given, stdin is used instead")
-
+    return mm * 1000 / 25.4
 
 if __name__ == "__main__":
-	try:
-		if ("-h" in argv[1]) or ("--help" in argv[1]):
-			print_help()
-			exit()
-	except IndexError:
-		pass
+    if "-h" in argv:
+        print("Usage: mm2mils [-h] [MM]")
+        print("If no argument is given, stdin is used instead")
+        exit()
 
-
-	try:
-		print(mm2mils(float(argv[1])))
-	except IndexError:
-		print(mm2mils(float(input())))
+    if len(argv) < 2:
+        mm = float(input())
+    else:
+        mm = float(argv[1])
+   
+    print(mm2mils(mm))
