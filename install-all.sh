@@ -1,5 +1,7 @@
 #! /bin/sh
 
+sudo cp utils.py /usr/local/lib/python$(python3 -c 'from sys import version_info; print("{}.{}".format(version_info.major, version_info.minor))')/dist-packages/utils.py
+
 sudo chmod +x gerbdim
 sudo cp gerbdim /usr/bin/gerbdim
 sudo chmod +x mils2mm

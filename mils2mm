@@ -1,19 +1,16 @@
 #!/usr/bin/python3
 
 from sys import argv
+from utils import mils2mm
 
-def mils2mm(mils):
-    return mils / 1000 * 25.4
+if "-h" in argv:
+    print("Usage: mils2mm [-h] [MILS]")
+    print("If no argument is given, stdin is used instead")
+    exit()
 
-if __name__ == "__main__":
-    if "-h" in argv:
-        print("Usage: mils2mm [-h] [MILS]")
-        print("If no argument is given, stdin is used instead")
-        exit()
+if len(argv) < 2:
+    mils = float(input())
+else:
+    mils = float(argv[1])
 
-    if len(argv) < 2:
-        mils = float(input())
-    else:
-        mils = float(argv[1])
-
-    print(mils2mm(mils))
+print(mils2mm(mils))
