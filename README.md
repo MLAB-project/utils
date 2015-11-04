@@ -39,3 +39,8 @@ pst
 ---
 
 Prints all text from stdin since some string till some other string.
+
+tagcp
+-----
+
+Copies content of TAG from SRC to DEST

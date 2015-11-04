@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+import re
+from sys import argv
+
+if (len(argv) < 3) or ("-h" in argv):
+    print("usage: tagcp [TAG] [SRC] [DEST]")
+    exit()
+
+expr = re.compile("<{0}>.*</{0}>".format(argv[1]), re.DOTALL)
+
+dest = open(argv[3], "r").read()
+
+open(argv[3], "w").write(re.sub(expr, expr.findall(open(argv[2], "r").read())[0], dest))
